@@ -19,8 +19,8 @@ List<Friend> friends = [
   const Friend(
     name: "Assata Bellegarde",
     sunsign: "Pisces",
-    birthday: "",
-    birthtime: "",
+    birthday: "14 Mar 1998",
+    birthtime: "12:11",
     element: "water",
   ),
   const Friend(

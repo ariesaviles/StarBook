@@ -64,7 +64,9 @@ flutter:
   - family: Cagile
     fonts:
       - asset: fonts/Cagile-Regular.otf
-
+  - family: FiraSans
+    fonts:
+      - asset: fonts/FiraSans-Medium.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
