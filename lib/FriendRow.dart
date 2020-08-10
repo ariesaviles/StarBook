@@ -9,15 +9,59 @@ class FriendRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String frdBio;
+    frdBio = '${frd.sunsign} - ${frd.birthday} - ${frd.birthtime}';
+    String frdSMR;
+    frdSMR = 'c';
+    Color element;
+
+    // element color switch case
+    switch(frd.element) {
+      case "earth": { element = Colors.green; }
+      break;
+      case "water": { element = Colors.blue; }
+      break;
+      case "air": { element = Colors.amber; }
+      break;
+      case "fire": { element = Colors.red; }
+      break;
+    } // swtich
+
     final friendCardContent = new Container(
         margin: new EdgeInsets.fromLTRB(50.0, 16.0, 16.0, 16.0),
         constraints: new BoxConstraints.expand(),
         child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              // top portion
               new Container(height: 4.0),
-              new Text(frd.name, style: TextStyle(fontSize: 20.0,fontFamily: 'Cagile')),
-              new Container(height: 10.0),
+              new Text(frd.name,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Cagile',
+                      //fontWeight: FontWeight.w500
+                  )
+              ),
+              new Container(height: 3.0),
+              new Text(frdBio,
+                style: TextStyle(
+                    fontSize: 12.0,
+                    fontFamily: 'FiraSans',
+                    color: Colors.grey)
+              ),
+              // separator
+              new Container(
+                margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                height: 3.0,
+                width: 75.0,
+                color: element,
+              ),
+              // bottom portion
+              new Row(
+                children: <Widget>[
+                  new Text(frdSMR, style: TextStyle(fontSize: 15.0, fontFamily: 'Astro')),
+                ]
+              )
             ]
         )
     );
@@ -51,13 +95,13 @@ class FriendRow extends StatelessWidget {
     ); // friendCard
 
     return new Container(
-      height: 120.0,
+      height: 130.0,
 
       margin: const EdgeInsets.only(
         top: 25.0,
         bottom: 15.0,
-        right: 25.0,
-        left: 5.0,
+        right: 45.0,
+        left: 15.0,
       ),
       child: new Stack(
         children: <Widget>[
