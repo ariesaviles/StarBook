@@ -8,7 +8,7 @@ class FriendRow extends StatelessWidget {
   FriendRow(this.frd);
 
   @override
-  Widget build(BuildContext context) {
+  Container build(BuildContext context) {
     String frdBio;
     frdBio = '${frd.sunsign} - ${frd.birthday} - ${frd.birthtime}';
     String frdSMR;
