@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:starbook_app/Friend.dart';
+import 'package:starbook_app/addFriendPage.dart';
 import 'dart:math' as math;
 
 class HomePage extends StatelessWidget {
@@ -150,7 +151,7 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
               floating: true,
               flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
-                  double percent = ((constraints.maxHeight - kToolbarHeight ) *
+                  double percent = (((constraints.maxHeight) - kToolbarHeight ) *
                       100 /
                       (appBarHeight - kToolbarHeight ));
                   return Stack(
@@ -182,7 +183,7 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
 
   //                    Text and Icon
                       Padding(
-                        padding: const EdgeInsets.only(top: 0.0, right: 13.0),
+                        padding: const EdgeInsets.only(top: 0.0, right: 9.0),
                         child: Container(
                           height: kToolbarHeight,
                           child: Row(
@@ -202,11 +203,20 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
                                       curve: Curves.fastOutSlowIn);
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.menu,
-                                    color: Colors.white,
-                                  ),
+                                  padding: const EdgeInsets.only(left:5.0, top:0.0, right: 0.0, bottom: 0.0),
+                                  child:
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.adjust,
+                                        color: Colors.white,
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => AddFriendPage())
+                                          );
+                                      }, // onPressed
+                                    ),
                                 ),
                               ),
                             ],
