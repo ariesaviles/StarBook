@@ -5,10 +5,10 @@ class AddFriendPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Colors.brown[200],
       appBar: new AppBar(
         backgroundColor: Colors.black,
         title: new Text("StarBook"),
-
       ),
       body: new Column(
         children: <Widget>[
