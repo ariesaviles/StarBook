@@ -112,7 +112,7 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
         borderRadius: new BorderRadius.circular(5.0),
         boxShadow: <BoxShadow>[
           new BoxShadow(
-            color: Colors.black12,
+            color: Colors.black26,
             blurRadius: 7.0,
             offset: new Offset(0.0, 10.0),
           ),
@@ -142,103 +142,104 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
     return Container(
         color: Colors.brown[200],
         child: SafeArea(
-        child: CustomScrollView(
-          controller: controller,
-          slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: appBarHeight,
-              floating: true,
-              flexibleSpace: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  double percent = (((constraints.maxHeight) - kToolbarHeight ) *
-                      100 /
-                      (appBarHeight - kToolbarHeight ));
-                  return Stack(
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/head-background.png",
-                        fit: BoxFit.cover,
-                        height: double.infinity,
-                        width: double.infinity,
-                      ),
-
-  //                    Custom Paint
-                      Container(
-                        height: kToolbarHeight,
-                        child: Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0, top:8.0, bottom: 8.0, right: 8.0),
-                                child: CustomPaint(
-                                  size: Size.fromHeight(kToolbarHeight),
-                                  painter: CirclePainter(100 - percent),
-                                ),
-                              ),
-                            ),
-                          ],
+          child: CustomScrollView(
+            controller: controller,
+            slivers: <Widget>[
+              SliverAppBar(
+                pinned: true,
+                expandedHeight: appBarHeight,
+                floating: true,
+                flexibleSpace: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    double percent = (((constraints.maxHeight) - kToolbarHeight ) *
+                        100 /
+                        (appBarHeight - kToolbarHeight ));
+                    return Stack(
+                      children: <Widget>[
+                        Image.asset(
+                          "assets/head-background.png",
+                          fit: BoxFit.cover,
+                          height: double.infinity,
+                          width: double.infinity,
                         ),
-                      ),
 
-  //                    Text and Icon
-                      Padding(
-                        padding: const EdgeInsets.only(top: 0.0, right: 9.0),
-                        child: Container(
+    //                    Custom Paint
+                        Container(
                           height: kToolbarHeight,
                           child: Row(
                             children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "StarBook",
-                                  style: TextStyle(color: Colors.white, fontFamily: 'Cagile', fontSize: 30.0),
-                                ),
-                              ),
-                              Spacer(),
-                              GestureDetector(
-                                onTap: () {
-                                  controller.animateTo(-appBarHeight,
-                                      duration: Duration(seconds: 4),
-                                      curve: Curves.fastOutSlowIn);
-                                },
+                              Flexible(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left:5.0, top:0.0, right: 0.0, bottom: 0.0),
-                                  child:
-                                    IconButton(
-                                      icon: Icon(
-                                        Icons.adjust,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => AddFriendPage())
-                                          );
-                                      }, // onPressed
-                                    ),
+                                  padding: const EdgeInsets.only(left: 8.0, top:8.0, bottom: 8.0, right: 8.0),
+                                  child: CustomPaint(
+                                    size: Size.fromHeight(kToolbarHeight),
+                                    painter: CirclePainter(100 - percent),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+
+    //                    Text and Icon
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0.0, right: 9.0),
+                          child: Container(
+                            height: kToolbarHeight,
+                            child: Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "StarBook",
+                                    style: TextStyle(color: Colors.white, fontFamily: 'Cagile', fontSize: 30.0),
+                                  ),
+                                ),
+                                Spacer(),
+                                GestureDetector(
+                                  onTap: () {
+                                    controller.animateTo(-appBarHeight,
+                                        duration: Duration(seconds: 4),
+                                        curve: Curves.fastOutSlowIn);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:5.0, top:0.0, right: 0.0, bottom: 0.0),
+                                    child:
+                                      IconButton(
+                                        icon: Icon(
+                                          Icons.adjust,
+                                          color: Colors.white,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => AddFriendPage())
+                                            );
+                                        }, // onPressed
+                                      ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
 
-            SliverList(delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                return makeFriend(index);
-              },
-                childCount: friends.length,
-              )
-            )
+              SliverList(
+                  delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+                    return makeFriend(index);
+                  }, childCount: friends.length,
+                )
+              ),
 
-          ],
-        ),
-        )
+
+            ],
+          ),
+          )
       );
   }
 }
