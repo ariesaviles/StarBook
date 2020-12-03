@@ -3,6 +3,7 @@ import 'package:starbook_app/HomePage.dart';
 import 'package:flutter/services.dart';
 import 'package:starbook_app/custom/CustomScrollBehavior.dart';
 
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.black, // navigation bar color
@@ -15,5 +16,7 @@ void main() {
 
   ));
 } // main
+
+
 
 

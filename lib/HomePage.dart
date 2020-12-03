@@ -4,6 +4,8 @@ import 'package:starbook_app/Friend.dart';
 import 'package:starbook_app/addFriendPage.dart';
 import 'dart:math' as math;
 
+import 'package:starbook_app/handleRequests.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -213,7 +215,7 @@ class _AnimateOnScrollFlutterState extends State<AnimateOnScrollFlutter> {
                                         onPressed: () {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => AddFriendPage())
+                                            MaterialPageRoute(builder: (context) => HandleRequests())
                                             );
                                         }, // onPressed
                                       ),
